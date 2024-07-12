@@ -75,9 +75,9 @@ export default function RootLayout({ children }) {
           <footer className="bg-white shadow mt-8 p-4">
             <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
               <nav className="flex space-x-4 mb-2 md:mb-0">
-                <Link href="/about-us"><span className="text-gray-700">About Us</span></Link>
-                <Link href="/contact-us"><span className="text-gray-700">Contact Us</span></Link>
-                <Link href="/social"><span className="text-gray-700">Social</span></Link>
+                <Link href="/About"><span className="text-gray-700">About Us</span></Link>
+                <Link href="/Contact"><span className="text-gray-700">Contact Us</span></Link>
+                <Link href="/SocialMedia"><span className="text-gray-700">Social</span></Link>
               </nav>
               <p className="text-gray-700 text-center md:text-right">&copy; {new Date().getFullYear()} Sneaker City. All rights reserved.</p>
             </div>

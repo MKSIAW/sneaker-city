@@ -7,7 +7,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow-y: scroll; 
+
 }
 
 .container {
@@ -45,3 +45,9 @@ input[type="text"] {
 footer p {
   color: #4a4a4a;
 }
+/* Add this to your global CSS file */
+svg {
+  width: 1em;  /* Adjust this value to change the icon size */
+  height: 1em; /* Adjust this value to change the icon size */
+}
+
