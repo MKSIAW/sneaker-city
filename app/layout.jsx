@@ -29,12 +29,22 @@ const Header = () => {
         </nav>
       </div>
       <div className="container mx-auto p-2 flex flex-col md:flex-row justify-between items-center">
-        <nav className="flex space-x-4 mb-2 md:mb-0">
-          <Link href="/LatestSneakers"><span className="text-gray-700">Latest Sneakers</span></Link>
-          <Link href="/men"><span className="text-gray-700">Men</span></Link>
-          <Link href="/women"><span className="text-gray-700">Women</span></Link>
-          <Link href="/kids"><span className="text-gray-700">Kids</span></Link>
-        </nav>
+      <nav className="flex justify-center space-x-4 mb-2 md:mb-0 w-full">
+  <Link href="/LatestSneakers">
+    <span className="text-gray-700 text-lg">Latest Sneakers</span>
+  </Link>
+  <Link href="/men">
+    <span className="text-gray-700 text-lg">Men</span>
+  </Link>
+  <Link href="/women">
+    <span className="text-gray-700 text-lg">Women</span>
+  </Link>
+  <Link href="/kids">
+    <span className="text-gray-700 text-lg">Kids</span>
+  </Link>
+</nav>
+
+
         <div className="flex items-center space-x-2">
           <input
             type="text"
