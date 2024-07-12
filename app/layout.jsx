@@ -17,13 +17,13 @@ const Header = () => {
       <div className="container mx-auto p-4 flex flex-col md:flex-row justify-between items-center">
         <div className="flex items-center mb-2 md:mb-0">
         <Link href="/">
-  <img src="/images/logo.png" alt="Sneaker City Logo" className="w-24 h-24 mr-2 cursor-pointer" />
+  <img src="/images/logo.png" alt="Sneaker City Logo" className="w-32 h-32 mr-2 cursor-pointer" />
 </Link>
 
           <h1 className="text-2xl font-bold">Sneaker City</h1>
         </div>
         <nav className="flex space-x-4 mb-2 md:mb-0">
-          <Link href="/help"><span className="text-gray-700">Help</span></Link>
+          <Link href="/Help"><span className="text-gray-700">Help</span></Link>
           <Link href="/join-us"><span className="text-gray-700">Join Us</span></Link>
           <Link href="/sign-in"><span className="text-gray-700">Sign In</span></Link>
         </nav>
