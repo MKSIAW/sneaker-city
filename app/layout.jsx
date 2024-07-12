@@ -14,8 +14,10 @@ export default function RootLayout({ children }) {
         <header className="bg-white shadow">
           <div className="container mx-auto p-4 flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center mb-2 md:mb-0">
-              <img src="/images/logo.png" alt="Sneaker City Logo" className="w-10 h-10 mr-2" />
-              <h1 className="text-xl font-bold">Sneaker City</h1>
+            <Link href="/">
+        <img src="/images/logo.png" alt="Sneaker City Logo" className="w-16 h-16 mr-2 cursor-pointer" />
+      </Link>
+              <h1 className="text-2xl font-bold">Sneaker City</h1>
             </div>
             <nav className="flex space-x-4 mb-2 md:mb-0">
               <Link href="/help"><span className="text-gray-700">Help</span></Link>
