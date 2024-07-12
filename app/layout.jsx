@@ -24,8 +24,8 @@ const Header = () => {
         </div>
         <nav className="flex space-x-4 mb-2 md:mb-0">
           <Link href="/Help"><span className="text-gray-700">Help</span></Link>
-          <Link href="/join-us"><span className="text-gray-700">Join Us</span></Link>
-          <Link href="/sign-in"><span className="text-gray-700">Sign In</span></Link>
+          <Link href="/JoinUs"><span className="text-gray-700">Join Us</span></Link>
+          <Link href="/SignIn"><span className="text-gray-700">Sign In</span></Link>
         </nav>
       </div>
       <div className="container mx-auto p-2 flex flex-col md:flex-row justify-between items-center">
