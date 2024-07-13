@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const SneakerDetail = ({ params }) => {
   const { id } = params;
- // const { addToCart } = useCart();
+ // const { addItem } = useCart();
   const [sneaker, setSneaker] = useState(null);
   const [selectedSize, setSelectedSize] = useState('');
 
@@ -256,16 +256,18 @@ const SneakerDetail = ({ params }) => {
 }, [id]);
 
 const handleAddToCart = () => {
- if (selectedSize && sneaker) {
-   const itemToAdd = {
-     id: sneaker.id,
-     brand: sneaker.brand,
-     model: sneaker.model,
-     price: sneaker.price,
-     size: selectedSize,
-   };
-   alert(`${sneaker.brand} ${sneaker.model} size ${selectedSize} added to cart!`);
- }
+  if (selectedSize && sneaker) {
+    const itemToAdd = {
+      id: sneaker.id,
+      brand: sneaker.brand,
+      model: sneaker.model,
+      price: parseFloat(sneaker.price.replace('$', '')), // convert price to number
+      size: selectedSize,
+      quantity: 1, // Add quantity if needed
+    };
+    addToCart(itemToAdd); // Add item to cart
+    alert(`${sneaker.brand} ${sneaker.model} size ${selectedSize} added to cart!`);
+  }
 };
 
 const recommendedSneakers = [

@@ -1,3 +1,4 @@
+
 import "./globals.css";
 import Link from 'next/link';
 //import { CartProvider } from "./CartContext/page";
@@ -54,7 +55,7 @@ const Header = () => {
           <Link href="/favorites">
             <span className="text-gray-800 text-2xl">❤️</span>
           </Link>
-          <Link href="/cart">
+          <Link href="/Cart">
             <span className="text-gray-700 text-2xl">🛒   </span>
         </Link>
         </div>
