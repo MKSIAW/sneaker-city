@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 
 
+
 const MainPage = () => {
     const [discount, setDiscount] = useState(0);
 
@@ -39,6 +40,7 @@ const MainPage = () => {
   ];
 
   return (
+  
     <div className="p-4">
       {/* Hero Banner */}
       <div className="relative bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-white rounded-lg p-8 mb-8 flex items-center">
@@ -125,7 +127,9 @@ const MainPage = () => {
         </div>
       </div>
     </div>
+  
   );
+  
 };
 
 

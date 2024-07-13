@@ -1,6 +1,11 @@
+'use client'
 import Link from 'next/link';
+//import { useRouter } from 'next/navigation';
+//import { useCart } from '../CartContext/page';
 
 const ShopNow = () => {
+ // const router = useRouter();
+ // const { addToCart } = useCart();
   const sneakers = [
     {
       id: 1,
@@ -118,6 +123,11 @@ const ShopNow = () => {
       
   ];
 
+  const handleAddToCart = (sneaker) => {
+    addToCart(sneaker); // Add the sneaker to the cart
+    router.push('/Cart'); // Redirect to the cart page
+  };
+
   return (
     <div className="flex flex-col items-center">
       <div className="text-center text-black py-10">
@@ -126,16 +136,17 @@ const ShopNow = () => {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 p-6">
         {sneakers.map((sneaker) => (
-          <div key={sneaker.id} className=" overflow-hidden transform transition-transform hover:scale-105">
+          <div key={sneaker.id} className="overflow-hidden transform transition-transform hover:scale-105">
             <img src={sneaker.image} alt={sneaker.model} className="w-full h-80 object-cover" />
             <div className="p-4 text-center bg-transparent">
               <h2 className="text-lg font-semibold text-black">{sneaker.brand} {sneaker.model}</h2>
-              <p className="text-black font-bold">{sneaker.price}</p>
-              <Link href={`/sneaker/${sneaker.id}`}>
-                <button className="mt-4 bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200">
-                  View Details
-                </button>
-              </Link>
+              <p className="text-black font-bold">${sneaker.price}</p>
+              <button
+                onClick={() => handleAddToCart(sneaker)} // Call the handler function
+                className="mt-4 bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-200"
+              >
+                Add To Cart
+              </button>
             </div>
           </div>
         ))}
