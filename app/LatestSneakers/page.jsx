@@ -52,7 +52,7 @@ const LatestSneakers = () => {
         brand: 'Veja',
         model: 'Impala ',
         price: '$160',
-        image: '/images/veja.webp',
+        image: '/images/veja1.jpg',
         releaseDate: '2023-07-25',
       },
       {
@@ -68,7 +68,7 @@ const LatestSneakers = () => {
         brand: 'New Balance',
         model: 'Fresh Form X 1080v13',
         price: '$164.99',
-        image: '/images/freshform.jpg',
+        image: '/images/freshform1.webp',
         releaseDate: '2024-07-20',
       },
       {
@@ -98,12 +98,11 @@ const LatestSneakers = () => {
 
   return (
     <div className="p-4">
-      {/* <h2 className="text-2xl font-bold mb-6 text-center">Latest Sneakers</h2> */}
       <ul className="space-y-6">
         {sneakers.map((sneaker) => (
           <li key={sneaker.id} className="border rounded-lg p-4 bg-white transition-transform transform hover:scale-105">
             <div className="flex items-center space-x-4">
-              <img src={sneaker.image} alt={sneaker.model} className="w-40 h-40 object-cover rounded-lg" />
+              <img src={sneaker.image} alt={sneaker.model} className="w-64 h-64 object-cover rounded-lg" /> {/* Adjust size as needed */}
               <div className="flex flex-col">
                 <h3 className="text-lg font-semibold text-gray-800">
                   <Link href={`/SneakerDetail/${sneaker.id}`}>
@@ -119,6 +118,7 @@ const LatestSneakers = () => {
       </ul>
     </div>
   );
+  
   
 };
 

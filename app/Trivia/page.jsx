@@ -1,79 +1,61 @@
 'use client';
 import React, { useState } from 'react';
 
-const triviaQuestions = [
-  {
-    question: 'What year was the Nike Air Jordan 1 released?',
-    options: ['1984', '1985', '1986', '1987'],
-    answer: '1985',
-  },
-  {
-    question: 'Which brand is known for the slogan "Just Do It"?',
-    options: ['Adidas', 'Nike', 'Puma', 'Reebok'],
-    answer: 'Nike',
-  },
-  {
-    question: 'What is the name of Adidas’s famous three-stripe logo?',
-    options: ['Stripes', 'Trefoil', 'Bauhaus', 'Zigzag'],
-    answer: 'Trefoil',
-  },
-  // Add more questions as needed
-];
-
-const TriviaPage = () => {
+const TriviaPage = ({ setDiscount }) => {
   const [score, setScore] = useState(0);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [showResult, setShowResult] = useState(false);
+  const [questionIndex, setQuestionIndex] = useState(0);
+  const questions = [
+    {
+      question: 'Which brand is known for the Air Max?',
+      options: ['Nike', 'Adidas', 'Puma', 'Reebok'],
+      answer: 'Nike',
+    },
+    {
+      question: 'What year did the Air Jordan 1 release?',
+      options: ['1985', '1990', '1995', '2000'],
+      answer: '1985',
+    },
+    // Add more questions as needed
+  ];
 
-  const handleOptionClick = (option) => {
-    setSelectedOption(option);
-    if (option === triviaQuestions[currentQuestion].answer) {
+  const handleAnswer = (option) => {
+    if (option === questions[questionIndex].answer) {
       setScore(score + 1);
     }
-  };
-
-  const handleNextQuestion = () => {
-    setSelectedOption(null);
-    if (currentQuestion < triviaQuestions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
+    if (questionIndex < questions.length - 1) {
+      setQuestionIndex(questionIndex + 1);
     } else {
-      setShowResult(true);
+      if (score + (option === questions[questionIndex].answer ? 1 : 0) === questions.length) {
+        alert('Congratulations! You passed all questions and earned a discount!');
+        setDiscount(0.2);  
+      } else {
+        alert('Good try! Please try again for discounts.');
+      }
+      setQuestionIndex(0);
+      setScore(0);
     }
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      {showResult ? (
-        <div className="text-center">
-          <h1 className="text-4xl font-bold">Your Score: {score} / {triviaQuestions.length}</h1>
-          <p className="mt-4">Thank you for participating!</p>
-        </div>
-      ) : (
-        <div>
-          <h1 className="text-2xl font-bold mb-4">{triviaQuestions[currentQuestion].question}</h1>
-          <div className="space-y-2">
-            {triviaQuestions[currentQuestion].options.map((option, index) => (
-              <button
-                key={index}
-                onClick={() => handleOptionClick(option)}
-                className={`w-full p-2 rounded ${selectedOption === option ? (option === triviaQuestions[currentQuestion].answer ? 'bg-green-500' : 'bg-red-500') : 'bg-blue-500'}`}
-                disabled={!!selectedOption}
-              >
-                {option}
-              </button>
-            ))}
-          </div>
-          {selectedOption && (
+    <div className="container mx-auto px-4 py-8 bg-gray-100">
+      <h1 className="text-3xl text-center font-bold mb-6 text-green-600">Sneaker Trivia</h1>
+      <div className="flex flex-col items-center mb-4">
+        <h2 className="text-xl font-semibold text-center mb-4">{questions[questionIndex].question}</h2>
+        <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+          {questions[questionIndex].options.map((option, index) => (
             <button
-              onClick={handleNextQuestion}
-              className="mt-4 bg-green-500 text-white px-4 py-2 rounded"
+              key={index}
+              onClick={() => handleAnswer(option)}
+              className="bg-green-500 text-white px-6 py-3 rounded hover:bg-green-600 transition duration-300 text-center"
             >
-              Next Question
+              {option}
             </button>
-          )}
+          ))}
         </div>
-      )}
+      </div>
+      <div className="mt-6 text-center">
+        <p className="text-lg font-semibold">Your Score: {score}</p>
+      </div>
     </div>
   );
 };

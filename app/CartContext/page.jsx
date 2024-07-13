@@ -7,7 +7,7 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
-  const addItem = (item) => {
+  const addToCart = (item) => {
     setCartItems((prevItems) => {
       const existingItem = prevItems.find((i) => i.id === item.id);
       if (existingItem) {
@@ -24,6 +24,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const updateQuantity = (id, quantity) => {
+    if (quantity <= 0) return; // Prevent setting quantity to zero or negative
     setCartItems((prevItems) =>
       prevItems.map((item) => (item.id === id ? { ...item, quantity: Number(quantity) } : item))
     );
@@ -33,8 +34,12 @@ export const CartProvider = ({ children }) => {
     return cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
   };
 
+  const clearCart = () => {
+    setCartItems([]); // Method to clear the cart
+  };
+
   return (
-    <CartContext.Provider value={{ cartItems, addItem, removeItem, updateQuantity, calculateTotal }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeItem, updateQuantity, calculateTotal, clearCart }}>
       {children}
     </CartContext.Provider>
   );

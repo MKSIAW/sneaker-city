@@ -1,14 +1,30 @@
-'use client'
-import React, { useState } from 'react';
+'use client';
+import React, { useState, useEffect } from 'react';
 
-const CheckoutPage = () => {
+const CheckoutPage = ({ cartItems }) => {
   const [paymentSuccess, setPaymentSuccess] = useState(false);
 
-  const handlePayment = () => {
-    // Simulate payment process
-    setTimeout(() => {
-      setPaymentSuccess(true);
-    }, 2000);
+  const handlePayment = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/api/payment', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ cart: cartItems }), // Send the cart items to server
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log(result.message); // Handle success message if needed
+        setPaymentSuccess(true); // Update state to show payment success message
+      } else {
+        throw new Error('Payment failed');
+      }
+    } catch (error) {
+      console.error('Error processing payment:', error);
+      // Handle error state or show error message
+    }
   };
 
   if (paymentSuccess) {
@@ -16,6 +32,15 @@ const CheckoutPage = () => {
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-4xl font-bold mb-6">Payment Successful!</h1>
         <p>Your order has been placed successfully. Thank you for shopping with us!</p>
+      </div>
+    );
+  }
+
+  if (!cartItems || cartItems.length === 0) {
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <h1 className="text-4xl font-bold mb-6">Your Cart is Empty</h1>
+        <p>Please add items to your cart before proceeding to checkout.</p>
       </div>
     );
   }
@@ -35,11 +60,7 @@ const CheckoutPage = () => {
             </tr>
           </thead>
           <tbody>
-            {/* Example items, replace with actual state management logic */}
-            {[
-              { id: 1, name: 'Nike Air Force 1', price: 90, quantity: 2 },
-              { id: 2, name: 'Adidas Ultra Boost', price: 180, quantity: 1 },
-            ].map((item) => (
+            {cartItems.map((item) => (
               <tr key={item.id}>
                 <td>{item.name}</td>
                 <td>{item.quantity}</td>
@@ -52,7 +73,7 @@ const CheckoutPage = () => {
       </div>
       <div className="mt-6">
         <h2 className="text-2xl font-bold mb-4">Payment Details</h2>
-        <form>
+        <form onSubmit={(e) => e.preventDefault()}>
           <div className="mb-4">
             <label className="block text-gray-700">Card Number</label>
             <input type="text" className="w-full p-2 border rounded" placeholder="1234 5678 9012 3456" />

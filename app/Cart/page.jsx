@@ -1,30 +1,58 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
-const CartPage = () => {
-  const [cartItems, setCartItems] = useState([
-    { id: 1, name: 'Nike Air Force 1', price: 90, quantity: 2 },
-    { id: 2, name: 'Adidas Ultra Boost', price: 180, quantity: 1 },
-  ]);
+const CartPage = ({ discount }) => {
+  const [cartItems, setCartItems] = useState([]);
 
-  const updateQuantity = (id, quantity) => {
+  useEffect(() => {
+    fetchCart();
+  }, []);
+
+  const fetchCart = async () => {
+    const response = await fetch('/api/cart');
+    const data = await response.json();
+    setCartItems(data);
+  };
+
+  const addItemToCart = async (item) => {
+    const response = await fetch('/api/cart/add', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(item),
+    });
+    const updatedCart = await response.json();
+    setCartItems(updatedCart);
+  };
+
+  const updateQuantity = async (id, quantity) => {
+    const quantityNumber = Number(quantity);
+    if (isNaN(quantityNumber) || quantityNumber < 0) return; // Prevent invalid quantities
+    
+    const updatedItem = cartItems.find(item => item.id === id);
+    if (updatedItem) {
+      // Ideally, send a request to update the quantity on the server
+      // await fetch(`/api/cart/update`, { method: 'PUT', body: JSON.stringify({ id, quantity: quantityNumber }) });
+    }
+
     setCartItems((prevItems) =>
-      prevItems.map((item) => (item.id === id ? { ...item, quantity: Number(quantity) } : item))
+      prevItems.map((item) => (item.id === id ? { ...item, quantity: quantityNumber } : item))
     );
   };
 
-  const removeItem = (id) => {
+  const removeItem = async (id) => {
+    await fetch(`/api/cart/delete`, { method: 'DELETE', body: JSON.stringify({ id }) });
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
   const calculateTotal = () => {
-    return cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    return total - (discount || 0); // Ensure discount is a number
   };
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-6">Your Cart</h1>
+      <h1 className="text-4xl text-center font-bold mb-6">Your Cart</h1>
       <div className="bg-white p-4 rounded-lg shadow-md">
         {cartItems.length === 0 ? (
           <p>Your cart is empty</p>
@@ -70,17 +98,17 @@ const CartPage = () => {
       <div className="mt-6">
         <h2 className="text-2xl font-bold">Total: ${calculateTotal()}</h2>
         <Link href="/CheckOut">
-          <button className="bg-green-500 text-white px-4 py-2 rounded mt-4">
+          <button className="bg-green-500 text-white px-3 py-1 rounded mt-4">
             Proceed to Checkout
           </button>
         </Link>
         <div className="mt-4 flex justify-end">
-  <Link href="/Trivia">
-    <div className="rounded-full bg-blue-500 text-white px-4 py-2 animate-pulse bounce cursor-pointer">
-      Try Our Sneaker Trivia for Discounts!
-    </div>
-  </Link>
-</div>
+          <Link href="/Trivia">
+            <div className="rounded-full bg-green-500 text-white px-4 py-2 animate-pulse bounce cursor-pointer">
+              Try Our Sneaker Trivia for Discounts!
+            </div>
+          </Link>
+        </div>
       </div>
       <style jsx>{`
         .bounce {

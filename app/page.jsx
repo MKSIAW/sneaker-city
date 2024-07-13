@@ -1,11 +1,11 @@
 // /pages/page.jsx
 'use client';
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { CartProvider  } from './CartContext/page';
+
 
 const MainPage = () => {
- // const { addToCart } = useContext(CartContext);
+    const [discount, setDiscount] = useState(0);
 
   const featuredSneakers = [
     {
@@ -56,6 +56,9 @@ const MainPage = () => {
           <img src="/images/banner.avif" alt="Sneakers" className="w-full h-auto rounded-lg" />
         </div>
       </div>
+
+    
+
 
       {/* Featured Sneakers */}
       <div className="mb-8">
@@ -125,10 +128,6 @@ const MainPage = () => {
   );
 };
 
-const PageWithCartProvider = () => (
-    <CartProvider>
-      <MainPage />
-    </CartProvider>
-  );
+
 
 export default MainPage;

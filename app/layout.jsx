@@ -52,11 +52,11 @@ const Header = () => {
             placeholder="Search..."
             className="p-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-500 shadow-lg"
           />
-          <Link href="/favorites">
+          {/* <Link href="/favorites">
             <span className="text-gray-800 text-2xl">❤️</span>
-          </Link>
+          </Link> */}
           <Link href="/Cart">
-            <span className="text-gray-700 text-2xl">🛒   </span>
+            <span className="text-gray-700 text-3xl">🛒   </span>
         </Link>
         </div>
       </div>
