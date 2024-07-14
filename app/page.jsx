@@ -1,12 +1,9 @@
-// /pages/page.jsx
 'use client';
 import React, { useState } from 'react';
 import Link from 'next/link';
 
-
-
 const MainPage = () => {
-    const [discount, setDiscount] = useState(0);
+  const [discount, setDiscount] = useState(0);
 
   const featuredSneakers = [
     {
@@ -39,8 +36,12 @@ const MainPage = () => {
     },
   ];
 
+  const addToCart = (sneaker) => {
+    // Implement add to cart functionality
+    console.log(`Adding ${sneaker.name} to cart.`);
+  };
+
   return (
-  
     <div className="p-4">
       {/* Hero Banner */}
       <div className="relative bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-white rounded-lg p-8 mb-8 flex items-center">
@@ -58,9 +59,6 @@ const MainPage = () => {
           <img src="/images/banner.avif" alt="Sneakers" className="w-full h-auto rounded-lg" />
         </div>
       </div>
-
-    
-
 
       {/* Featured Sneakers */}
       <div className="mb-8">
@@ -93,7 +91,7 @@ const MainPage = () => {
         <h2 className="text-2xl font-bold mb-4">Shop by Category</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {['Men', 'Women', 'Kids', 'New Arrivals'].map((category) => (
-            <Link key={category} href={`/category/${category.toLowerCase()}`}>
+            <Link key={category} href={`/categories/${category.toLowerCase()}`}>
               <div className="relative bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white rounded-lg p-8 text-center transition-transform transform hover:scale-105">
                 <div className="absolute inset-0 bg-black opacity-30 rounded-lg"></div>
                 <div className="relative z-10">
@@ -127,11 +125,7 @@ const MainPage = () => {
         </div>
       </div>
     </div>
-  
   );
-  
 };
-
-
 
 export default MainPage;

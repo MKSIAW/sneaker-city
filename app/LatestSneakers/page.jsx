@@ -1,10 +1,11 @@
-'use client'
+'use client';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 
-
 const LatestSneakers = () => {
   const [sneakers, setSneakers] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 10;
 
   useEffect(() => {
     // Mock data 
@@ -89,22 +90,35 @@ const LatestSneakers = () => {
         image: '/images/jordan.png',
         releaseDate: '2023-02-20',
       },
-     
       
     ];
 
     // Sort sneakers by release date
     const sortedSneakers = mockData.sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
-    setSneakers(sortedSneakers.slice(0, 10)); 
+    setSneakers(sortedSneakers); 
   }, []);
+
+  const handleNextPage = () => {
+    if ((currentPage + 1) * itemsPerPage < sneakers.length) {
+      setCurrentPage((prevPage) => prevPage + 1);
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage((prevPage) => prevPage - 1);
+    }
+  };
+
+  const displayedSneakers = sneakers.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage);
 
   return (
     <div className="p-4">
       <ul className="space-y-6">
-        {sneakers.map((sneaker) => (
+        {displayedSneakers.map((sneaker) => (
           <li key={sneaker.id} className="border rounded-lg p-4 bg-white transition-transform transform hover:scale-105">
             <div className="flex items-center space-x-4">
-              <img src={sneaker.image} alt={sneaker.model} className="w-64 h-64 object-cover rounded-lg" /> {/* Adjust size as needed */}
+              <img src={sneaker.image} alt={sneaker.model} className="w-64 h-64 object-cover rounded-lg" />
               <div className="flex flex-col">
                 <h3 className="text-lg font-semibold text-gray-800">
                   <Link href={`/SneakerDetail/${sneaker.id}`}>
@@ -118,10 +132,24 @@ const LatestSneakers = () => {
           </li>
         ))}
       </ul>
+      <div className="flex justify-between mt-4">
+        <button
+          onClick={handlePrevPage}
+          disabled={currentPage === 0}
+          className={`px-4 py-2 rounded ${currentPage === 0 ? 'bg-gray-300' : 'bg-blue-500 text-white'}`}
+        >
+          Previous
+        </button>
+        <button
+          onClick={handleNextPage}
+          disabled={(currentPage + 1) * itemsPerPage >= sneakers.length}
+          className={`px-4 py-2 rounded ${((currentPage + 1) * itemsPerPage >= sneakers.length) ? 'bg-gray-300' : 'bg-blue-500 text-white'}`}
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
-  
-  
 };
 
 export default LatestSneakers;
