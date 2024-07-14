@@ -47,7 +47,7 @@ const CartPage = ({ discount }) => {
 
   const calculateTotal = () => {
     const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
-    return total - (discount || 0); // Ensure discount is a number
+    return total - (discount || 0); 
   };
 
   return (

@@ -2,15 +2,15 @@
 // import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useCart } from '@/app/CartContext/page';
-import { CartProvider } from '@/app/CartContext/page';
+//import { useCart } from '@/app/CartContext/page';
+//import { CartProvider } from '@/app/CartContext/page';
 
 
 
 const SneakerDetail = ({ params }) => {
   const { id } = params;
- const { addToCart } = useCart();
- console.log(useCart());
+ //const { addToCart } = useCart();
+ //console.log(useCart());
   const [sneaker, setSneaker] = useState(null);
   const [selectedSize, setSelectedSize] = useState('');
 
@@ -339,7 +339,7 @@ if (!sneaker) return <div>Sneaker not found.</div>;
 
 
 return (
-  <CartProvider>
+
 
  <div className="p-4 bg-gray-100 ">
    <div className="flex flex-col md:flex-row justify-between">
@@ -425,7 +425,7 @@ return (
 </div>
 
  </div>
- </CartProvider>
+
 );
 };
 

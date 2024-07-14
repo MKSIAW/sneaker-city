@@ -1,0 +1,227 @@
+[
+    {
+      "id": 1,
+      "brand": "Nike",
+      "model": "Air Max",
+      "images": [
+        "/images/shopnow1.avif"
+      ],
+      "price": "$80",
+      "description": "Description of the sneaker",
+      "productDetails": "Details of the product",
+      "sizes": { "8": 5, "9": 3, "10": 2 },
+      "rating": 4.5,
+      "releaseDate": "2023-01-01"
+    },
+    {
+      "id": 2,
+      "brand": "Nike",
+      "model": "Air Max Pink",
+      "images": [
+        "/images/shopnow2.avif"
+      ],
+      "price": "$180",
+      "description": "Description of the sneaker",
+      "productDetails": "Details of the product",
+      "sizes": { "8": 5, "9": 3, "10": 2 },
+      "rating": 4.5,
+      "releaseDate": "2023-01-01"
+    },
+    {
+      "id": 3,
+      "brand": "Nike",
+      "model": "Air Force 1 Brown",
+      "images": [
+        "/images/shopnow3.avif"
+      ],
+      "price": "$120",
+      "description": "Description of the sneaker",
+      "productDetails": "Details of the product",
+      "sizes": { "8": 5, "9": 3, "10": 2 },
+      "rating": 4.5,
+      "releaseDate": "2023-01-01"
+    },
+    {
+      "id": 4,
+      "brand": "Nike",
+      "model": "Trainers",
+      "images": [
+        "/images/shopnow4.avif"
+      ],
+      "price": "$107",
+      "description": "Description of the sneaker",
+      "productDetails": "Details of the product",
+      "sizes": { "8": 5, "9": 3, "10": 2 },
+      "rating": 4.5,
+      "releaseDate": "2023-01-01"
+    },
+    {
+      "id": 5,
+      "brand": "Puma",
+      "model": "Smash Perf",
+      "images": [
+        "/images/shopnow5.avif"
+      ],
+      "price": "$320",
+      "description": "Description of the sneaker",
+      "productDetails": "Details of the product",
+      "sizes": { "8": 5, "9": 3, "10": 2 },
+      "rating": 4.5,
+      "releaseDate": "2023-01-01"
+    },
+    {
+      "id": 6,
+      "brand": "Nike",
+      "model": "Air Jordan 12 Gym Red",
+      "images": [
+        "/images/shopnow6.avif"
+      ],
+      "price": "$250",
+      "description": "Description of the sneaker",
+      "productDetails": "Details of the product",
+      "sizes": { "8": 5, "9": 3, "10": 2 },
+      "rating": 4.5,
+      "releaseDate": "2023-01-01"
+    },
+    {
+      "id": 7,
+      "brand": "Puma",
+      "model": "Trinomic Wedge",
+      "images": [
+        "/images/shopnow7.avif"
+      ],
+      "price": "$125",
+      "description": "Description of the sneaker",
+      "productDetails": "Details of the product",
+      "sizes": { "8": 5, "9": 3, "10": 2 },
+      "rating": 4.5,
+      "releaseDate": "2023-01-01"
+    },
+    {
+      "id": 8,
+      "brand": "Puma",
+      "model": "",
+      "images": [
+        "/images/shopnow8.avif"
+      ],
+      "price": "$180",
+      "description": "Description of the sneaker",
+      "productDetails": "Details of the product",
+      "sizes": { "8": 5, "9": 3, "10": 2 },
+      "rating": 4.5,
+      "releaseDate": "2023-01-01"
+    },
+    {
+      "id": 9,
+      "brand": "Nike",
+      "model": "Air Jordan 13",
+      "images": [
+        "/images/shopnow9.avif"
+      ],
+      "price": "$185",
+      "description": "Description of the sneaker",
+      "productDetails": "Details of the product",
+      "sizes": { "8": 5, "9": 3, "10": 2 },
+      "rating": 4.5,
+      "releaseDate": "2023-01-01"
+    },
+    {
+      "id": 10,
+      "brand": "New Balance",
+      "model": "X-90",
+      "images": [
+        "/images/shopnow10.avif"
+      ],
+      "price": "$176",
+      "description": "Description of the sneaker",
+      "productDetails": "Details of the product",
+      "sizes": { "8": 5, "9": 3, "10": 2 },
+      "rating": 4.5,
+      "releaseDate": "2023-01-01"
+    },
+    {
+      "id": 11,
+      "brand": "Adidas",
+      "model": "Yeezy Boost 359 v2",
+      "images": [
+        "/images/shopnow11.avif"
+      ],
+      "price": "$320",
+      "description": "Description of the sneaker",
+      "productDetails": "Details of the product",
+      "sizes": { "8": 5, "9": 3, "10": 2 },
+      "rating": 4.5,
+      "releaseDate": "2023-01-01"
+    },
+    {
+      "id": 12,
+      "brand": "Yeezy",
+      "model": "600",
+      "images": [
+        "/images/shopnow12.avif"
+      ],
+      "price": "$430",
+      "description": "Description of the sneaker",
+      "productDetails": "Details of the product",
+      "sizes": { "8": 5, "9": 3, "10": 2 },
+      "rating": 4.5,
+      "releaseDate": "2023-01-01"
+    },
+    {
+      "id": 13,
+      "brand": "Adidas",
+      "model": "EQT ADV Grey",
+      "images": [
+        "/images/shopnow13.avif"
+      ],
+      "price": "$123",
+      "description": "Description of the sneaker",
+      "productDetails": "Details of the product",
+      "sizes": { "8": 5, "9": 3, "10": 2 },
+      "rating": 4.5,
+      "releaseDate": "2023-01-01"
+    },
+    {
+      "id": 14,
+      "brand": "Fila",
+      "model": "Disruptor",
+      "images": [
+        "/images/shopnow14.avif"
+      ],
+      "price": "$70",
+      "description": "Description of the sneaker",
+      "productDetails": "Details of the product",
+      "sizes": { "8": 5, "9": 3, "10": 2 },
+      "rating": 4.5,
+      "releaseDate": "2023-01-01"
+    },
+    {
+      "id": 15,
+      "brand": "Converse X COMME des GARCONs",
+      "model": "Play",
+      "images": [
+        "/images/shopnow15.avif"
+      ],
+      "price": "$150",
+      "description": "Description of the sneaker",
+      "productDetails": "Details of the product",
+      "sizes": { "8": 5, "9": 3, "10": 2 },
+      "rating": 4.5,
+      "releaseDate": "2023-01-01"
+    },
+    {
+      "id": 16,
+      "brand": "Adidas",
+      "model": "EQT ADV 91-18",
+      "images": [
+        "/images/shopnow16.avif"
+      ],
+      "price": "$255",
+      "description": "Description of the sneaker",
+      "productDetails": "Details of the product",
+      "sizes": { "8": 5, "9": 3, "10": 2 },
+      "rating": 4.5,
+      "releaseDate": "2023-01-01"
+    }
+  ]
+  
