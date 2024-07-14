@@ -1,46 +1,54 @@
-Sneaker City
+# Sneaker City
 
 Sneaker City is an online sneaker store built with Next.js and Node.js, featuring categories for Women, Men, and Kids, showcasing the latest styles and trends.
 
-Table of Contents
-Getting Started
-Prerequisites
-Installation
-Running the Application
-Built With
-Getting Started
+## Table of Contents
+
+- [Getting Started](#getting-started)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Running the Application](#running-the-application)
+- [Built With](#built-with)
+
+## Getting Started
+
 Follow these instructions to set up and run the Sneaker City application locally.
 
-Prerequisites
+### Prerequisites
+
 Make sure you have the following installed:
 
-Node.js (v12 or higher)
-npm (Node package manager, usually comes with Node.js)
+- [Node.js](https://nodejs.org/) (v12 or higher)
+- [npm](https://www.npmjs.com/) (Node package manager, usually comes with Node.js)
 
-Installation
-Clone the repository:
-git clone https://github.com/yourusername/sneaker-city.git
-cd sneaker-city
+### Installation
 
-Install dependencies:
-npm install
+1. **Clone the repository:**
 
-Running the Application
-Start the development server:
-npm run dev
+   ```bash
+   git clone https://github.com/MKSIAW/sneaker-city.git
+   cd sneaker-city
+   
+2. **Install dependencies:**
 
-Open your web browser and navigate to:
-http://localhost:3000
+   ```bash
+   npm install
 
-You should see the Sneaker City homepage!
+## Runnng the Application
 
-Built With
-Next.js - A React framework for server-side rendering and static site generation.
-Node.js - JavaScript runtime for building the backend.
-Tailwind CSS - A utility-first CSS framework for styling.
+1. **Start the develoment server:**
+   
+   ```bash
+   npm run dev
 
-Contributing
-Feel free to submit pull requests or open issues for any enhancements or bug fixes.
+3. **Open your web browser and navigate to:**
+   
+   ```arduino
+   http://localhost:3000
+  You should see Sneaker City homepage!
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+## Built with
+
+- [Next.js](https://nextjs.org/) - A React framework for server-side rendering and static site generation.
+- [Node.js](https://nodejs.org/) - JavaScript runtime for building the backend.
+- [Tailwind Css](https://tailwindcss.com/) - A utility-first CSS framework for styling.
