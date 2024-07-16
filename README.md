@@ -8,7 +8,6 @@ Sneaker City is an online sneaker store built with Next.js and Node.js, featurin
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Running the Application](#running-the-application)
-- [Running Tests](#running-tests)
 - [Built With](#built-with)
 
 ## Getting Started
@@ -47,15 +46,6 @@ Make sure you have the following installed:
    ```arduino
    http://localhost:3000
   **You should see Sneaker City homepage!**
-
-## Running Tests
-
-1. **To run tests, use the following command:**
-   
-   ```bash
-   npm test
-
-3. **This will execute all tests located in the `_tests_` directory or any files within the `.test.js` or `.spec.js` extensions**
 
 ## Built with
 
